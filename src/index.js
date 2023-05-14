@@ -24,11 +24,22 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function getWeatherCondition(response) {
+  console.log(response);
+}
+
 function search(event) {
   event.preventDefault();
-  let cityElement = document.querySelector("#city");
-  let cityInput = document.querySelector("#city-input");
-  cityElement.innerHTML = cityInput.value;
+
+  let apiKey = "3b5f3e51ce51ffad1f79b84acf0944ed";
+  let city = "Paris";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  //let cityElement = document.querySelector("#city");
+  // let cityInput = document.querySelector("#city-input");
+  //cityElement.innerHTML = cityInput.value;
+
+  axios.get(apiUrl).then(getWeatherCondition);
 }
 
 function convertFahrenheit(event) {
@@ -36,26 +47,22 @@ function convertFahrenheit(event) {
   let temperatureElement = document.querySelector("#temperature");
   let temperature = temperatureElement.innerHTML;
 
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = 66;
 }
 
 function convertCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = 19;
 }
 
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
-
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
-
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertFahrenheit);
+let celsiusLink = document.querySelector("#celsius-link");
 
-let celsiusLink = document.querySelector("#elsius-link");
+dateElement.innerHTML = formatDate(currentTime);
+searchForm.addEventListener("submit", search);
+fahrenheitLink.addEventListener("click", convertFahrenheit);
 celsiusLink.addEventListener("click", convertCelsius);
