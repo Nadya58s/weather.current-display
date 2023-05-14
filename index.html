@@ -21,7 +21,7 @@
       <div class="weather-app">
         <form class="search-form" id="search-form">
           <div class="row">
-            <div class="col-9">
+            <div class="col-6">
               <input
                 type="search"
                 placeholder="Type a city.."
@@ -35,52 +35,46 @@
               <input
                 type="submit"
                 value="Search"
-                class="form-control btn btn-primary"
+                class="form-control btn btn-primary shadow-sm w-100"
               />
+            </div>
+            <div class="col-3">
+            <button class="btn btn-success w-100"
+            id="current-location-button">
+              Current
+            </button>
             </div>
           </div>
         </form>
-        <h1 id="city">New York</h1>
+        <h1 id="city"></h1>
         <ul>
           <li id="date"></li>
-          <li>Partly Cloudy</li>
+          <li id="description"></li>
         </ul>
         <div class="row">
           <div class="col-6">
             <div class="clearfix">
-              <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAQBJREFUaN7t2csNwyAMBmBGYYSMwhgdgxEYjRW6ARu4HNyqB0CKednElf5b2/hLSALGAICRHKMABSjgUMDdD7xfLifkxByoJOJ33O3/nwHIhVgsKDWKriXhb+0WQD6wJxZegvhlADzrcUDhpeFlpwLyAa5BZ711Na4pgAXFNxFdABw2K4r/R9iRgLiw+N89MQSATxvYFN8F2DB0qkOJCggbi/8m9AASA0AiAXBuA0ziKIDACBAogMgIECkAYBUFKEABzwOIf4yKf5HJnkqIn8wxmk775y5oxC8pj1jUH9FWEd/YOqK1eERz94j2euFqUCF7NzjYbzHpLqUCFKCAJfkAq7RimK7qUtAAAAAASUVORK5CYII="
-                alt="Clear icon"
-                class="weather-icon float-left"
-              />
               <div class="float-left">
-                <span class="temperature" id="temperature">19</span>
-                <span class="units">
-                  <a href="#" id="celsius-link">°C</a>
-                  | <a href="#" id="fahrenheit-link">°F</a>
-                </span>
+                <span class="temperature" id="temperature"></span>
+                <span class="units">°C</span>
               </div>
             </div>
           </div>
           <div class="col-6">
             <ul>
-              <li>Parcipitation: <span class>0</span>  %</li>
-              <li>Humidity: 77%</li>
-              <li>Wind: 8km/h</li>
+              <li>Humidity:<span id="humidity"></span>%</li>
+              <li>Wind:<span id="wind"></span> km/h</li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
-    <footer class="text-cent">
-      <a
-        href="https://github.com/Nadya58s/weather.current-display"
-        target="_blank"
-        >Open-source code</a
-      >
-      by Nadia Sylvester
-    </footer>
-
+    <small class="intro">
+        Coded by <strong>Nadia Sylvester</strong>
+        | 
+        <a href=https://github.com/Nadya58s/weather.current-display target="_blank"
+          >open source on GitHub</a>
+    </small>
+</div>
     <script src="src/index.js"></script>
   </body>
 </html>
