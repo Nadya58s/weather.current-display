@@ -40,4 +40,5 @@ searchForm.addEventListener("submit", search);
 
 let temperatureElement = document.querySelector("#temperature");
 let temperature = temperatureElement.innerHTML;
-console.log(temperature);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertFahrenheit);
