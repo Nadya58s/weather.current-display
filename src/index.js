@@ -24,22 +24,21 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function getWeatherCondition(response) {
-  console.log(response);
+function displayWeatherCondition(response) {
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
 }
 
 function search(event) {
   event.preventDefault();
 
   let apiKey = "3b5f3e51ce51ffad1f79b84acf0944ed";
-  let city = "Paris";
+  let city = document.querySelector("#city-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-  //let cityElement = document.querySelector("#city");
-  // let cityInput = document.querySelector("#city-input");
-  //cityElement.innerHTML = cityInput.value;
-
-  axios.get(apiUrl).then(getWeatherCondition);
+  axios.get(apiUrl).then(displayWeatherCondition);
 }
 
 function convertFahrenheit(event) {
