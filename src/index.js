@@ -31,6 +31,14 @@ function search(event) {
   cityElement.innerHTML = cityInput.value;
 }
 
+function convertFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = temperatureElement.innerHTML;
+
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+}
+
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
@@ -38,7 +46,5 @@ dateElement.innerHTML = formatDate(currentTime);
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-let temperatureElement = document.querySelector("#temperature");
-let temperature = temperatureElement.innerHTML;
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertFahrenheit);
